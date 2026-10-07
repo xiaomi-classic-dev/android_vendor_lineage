@@ -502,3 +502,22 @@ stagefright_qcom_legacy {
         },
     },
 }
+
+// Optional exact-path compatibility for legacy vendor executables.
+soong_config_module_type {
+    name: "non_pie_executables",
+    module_type: "cc_defaults",
+    config_namespace: "lineageGlobalVars",
+    value_variables: ["non_pie_executables_header_dir"],
+    properties: ["cppflags", "include_dirs"],
+}
+
+non_pie_executables {
+    name: "non_pie_executables_defaults",
+    soong_config_variables: {
+        non_pie_executables_header_dir: {
+            cppflags: ["-DENABLE_NON_PIE_SUPPORT"],
+            include_dirs: ["%s"],
+        },
+    },
+}
