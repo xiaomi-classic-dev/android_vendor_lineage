@@ -1,5 +1,10 @@
 package android
 type Product_variables struct {
+	Non_pie_executables_header_dir struct {
+		Cppflags []string
+		Include_dirs []string
+		Srcs []string
+	}
 	Additional_gralloc_10_usage_bits struct {
 		Cppflags []string
 	}
@@ -70,6 +75,7 @@ type Product_variables struct {
 }
 
 type ProductVariables struct {
+	Non_pie_executables_header_dir *string `json:",omitempty"`
 	Additional_gralloc_10_usage_bits  *string `json:",omitempty"`
 	Apply_msm8974_1440p_egl_workaround  *bool `json:",omitempty"`
 	Bootloader_message_offset  *int `json:",omitempty"`
