@@ -28,7 +28,6 @@ $(foreach v,$(EXPORT_TO_SOONG),$(eval $(call addVar,$(v))))
 
 SOONG_CONFIG_NAMESPACES += lineageGlobalVars
 SOONG_CONFIG_lineageGlobalVars += \
-    non_pie_executables_header_dir \
     additional_gralloc_10_usage_bits \
     bootloader_message_offset \
     disable_postrender_cleanup \
@@ -108,5 +107,6 @@ endif #TARGET_USE_QTI_BT_STACK
 
 # Unset devices keep the normal PIE-only linker contract.
 ifneq ($(strip $(LINKER_NON_PIE_EXECUTABLES_HEADER_DIR)),)
+SOONG_CONFIG_lineageGlobalVars += non_pie_executables_header_dir
 SOONG_CONFIG_lineageGlobalVars_non_pie_executables_header_dir := $(LINKER_NON_PIE_EXECUTABLES_HEADER_DIR)
 endif
